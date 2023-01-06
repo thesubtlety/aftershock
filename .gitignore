@@ -1,0 +1,8 @@
+*.hcl
+.terraform*
+terraform.tfstate.d*
+*.tfstate
+*.tfstate.backup
+terraform.tfvars
+.tfexec
+build/aftershock*

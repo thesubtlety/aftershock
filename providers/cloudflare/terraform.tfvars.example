@@ -1,0 +1,5 @@
+cloudflare_api_token = "..."
+
+#cloudflare_user_id = "example"
+#cloudflare_email = "foo@example.com"
+#cloudflare_zone  = "example.com"

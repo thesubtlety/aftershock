@@ -1,0 +1,7 @@
+region = "us-east-1"
+aws_access_key_id = "my-access-key"
+aws_secret_access_key = "my-secret-key"
+
+#aws_session_token = ""
+#role_arn = "arn:aws:iam::123456789012:role/ROLE_NAME"
+#profile = ""

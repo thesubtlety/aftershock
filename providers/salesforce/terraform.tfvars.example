@@ -1,0 +1,4 @@
+client_id   = "ABCDEFG"
+private_key = "./priv.pem"
+username    = "user@example.com"
+salesforce_profile_username = ""

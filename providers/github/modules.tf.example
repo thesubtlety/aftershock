@@ -1,0 +1,17 @@
+# Recon module
+# module "github_recon" {
+#   source = "./github_recon"
+#   github_api_token = var.github_api_token
+# }
+# output "github_recon_output" {
+#   value = module.github_recon
+# }
+
+# # New SSH Key module
+# module "github_create_ssh_key" {
+#   source = "./create_ssh_key"
+#   github_api_token = var.github_api_token
+# }
+# output "github_create_ssh_key_output" {
+#   value = module.github_create_ssh_key
+# }

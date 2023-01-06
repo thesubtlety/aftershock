@@ -1,0 +1,9 @@
+customer_id  = "A01b123xz"
+access_token = ""
+#credentials_file = "./creds.json"
+
+#create_user_primary_email
+#create_user_md5password
+#create_user_firstname
+#create_user_lastname
+#create_user_recover_email
