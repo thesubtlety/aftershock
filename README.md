@@ -55,6 +55,8 @@ Flags:
 
 ## Supported Providers and Actions
 
+These are simply the actions I chose to copy paste for quick testing. As long as the resource or data source is defined you can copy paste the terraform definition and add the functionality.
+
 * Atlassian
   * Recon
     * JQL search
@@ -105,7 +107,7 @@ Flags:
 
 1. Search the Terraform [registry](https://registry.terraform.io/)
 2. Check out the documentation tab for example usage
-   1. Typically the main page has provider/auth info you can copy paste into provider.tf. Click "Use Provider" for a template.
+   1. Typically the main page has provider/auth info you can copy paste into `provider.tf`. Click `Use Provider` for a template.
    2. The docs are broken out into Data Sources (good for recon) and Resources (good for post exploit actions)
 3. Create templates
 
@@ -114,7 +116,9 @@ aftershock new <provider> <action>
 e.g. aftershock new jamf dump-scripts
 ```
 
-3. Update terraform
+3. Update the terraform files based on the docs
+
+If you're just adding an action to an existing provider all you need to do is configure the `<action>.tf` file and add any required variables to the `variables.tf` file.
 
 **provider.tf**
 
@@ -137,9 +141,6 @@ Now update the `action.tf` file as appropriate, to create resources or output da
 **Caveats**
 
 Some providers don't have Data Sources which means you'd need to write one to perform recon or rely on an SDK. Typically you'll still have resources available for post exploit actions.
-
-Initially I was using target modules but it's easier to just manually copy the files you need to your module directory to reduce the need to copy code between files.
-
 
 ## Troubleshooting
 
