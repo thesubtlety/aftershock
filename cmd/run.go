@@ -25,18 +25,18 @@ aftershock run splunk create-user
 			cmd.Usage()
 			return
 		}
-		runCmd := checkArgs(args)
+		runCmd := checkArgs(args, conf)
 		log.Printf("Running %s %s", runCmd.Provider, runCmd.Action)
 		aftershock.ExecTF(runCmd, conf)
 	},
 }
 
-func checkArgs(args []string) config.RunCmd {
+func checkArgs(args []string, conf config.AftershockConfig) config.RunCmd {
 	var runCmd config.RunCmd
 	provider := args[0]
 	action := args[1]
 	action = strings.ReplaceAll(action, "-", "_")
-	actionPath := filepath.Join("providers", provider, action)
+	actionPath := filepath.Join(conf.ProvidersPath, provider, action)
 
 	_, err := os.ReadDir(actionPath)
 	if err != nil {

@@ -18,7 +18,6 @@ var rootCmd = &cobra.Command{
 	Short: "A tool to make quick use of terraform providers",
 	Long: `An tool to quickly leverage terraform providers and modules
 Examples
-	aftershock search <saas-platform>
 	aftershock run github recon
 	aftershock run splunk create-user`,
 	//Run: func(cmd *cobra.Command, args []string) {},
@@ -67,4 +66,5 @@ func init() {
 	rootCmd.PersistentFlags().BoolVar(&conf.Force, "force", false, "Don't prompt to delete state files")
 	rootCmd.PersistentFlags().BoolVar(&conf.Verbose, "verbose", false, "Print standard terraform output")
 	rootCmd.PersistentFlags().StringVar(&conf.DebugPath, "debug-path", "", "TF_LOG=DEBUG output file")
+	rootCmd.PersistentFlags().StringVar(&conf.ProvidersPath, "providers-path", "providers", "Path to terraform templates folder")
 }

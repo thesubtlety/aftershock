@@ -25,11 +25,3 @@ data "github_repository" "all" {
 output "github_repository_all_output" {
   value = data.github_repository.all
 }
-
-# Get info on action secrets
-data "github_actions_secrets" "example" {
-  name = var.github_repo_name
-}
-output "github_actions" {
-  value = data.github_actions_secrets.example
-}

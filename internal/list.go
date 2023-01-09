@@ -6,6 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/thesubtlety/aftershock/config"
 )
 
 type ProviderActions struct {
@@ -16,8 +18,8 @@ type ProviderActions struct {
 	Resources      []string
 }
 
-func ListActions() {
-	providerPath := "providers"
+func ListActions(conf config.AftershockConfig) {
+	providerPath := conf.ProvidersPath
 	var list []string
 	err := filepath.Walk(providerPath, func(path string, info fs.FileInfo, err error) error {
 		if err != nil {

@@ -7,14 +7,16 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/thesubtlety/aftershock/config"
 )
 
-func NewAction(args []string) {
+func NewAction(args []string, conf config.AftershockConfig) {
 	provider := args[0]
 	action := args[1]
 	action = strings.ReplaceAll(action, "-", "_")
-	actionPath := filepath.Join("providers", provider, action)
-	providerPath := filepath.Join("providers", provider)
+	actionPath := filepath.Join(conf.ProvidersPath, provider, action)
+	providerPath := filepath.Join(conf.ProvidersPath, provider)
 
 	//if provider folder doesn't exist, create it and add template tf files
 	_, err := os.Stat(providerPath)

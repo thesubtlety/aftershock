@@ -30,8 +30,6 @@ func InstallTF() string {
 }
 
 func setupWorkspace(provider, modulePath, execPath string) *tfexec.Terraform {
-	// Change to provider dir
-	//providerPath := filepath.Join("providers", provider)
 	tf, err := tfexec.NewTerraform(modulePath, execPath)
 	if err != nil {
 		log.Fatalf("error running NewTerraform: %s", err)

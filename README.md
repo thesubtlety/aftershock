@@ -20,16 +20,16 @@ Get the binary: https://github.com/thesubtlety/aftershock/releases
 
 **Run**
 
-1. Add your tokens or credentials to the appropriate providers' `terraform.tfvars.example` file. Rename to `terraform.tfvars`, and then execute your desired module.
-   1. Or set env vars prepended with `TF_VAR` like: `TF_VAR_github_api_token=$(echo $GITHUB_TOKEN) aftershock run github recon`
-
-2. Then execute like the following
+1. Add your tokens or credentials to the appropriate providers' `terraform.tfvars.example` file.
+   1. Or set env vars prepended with `TF_VAR` like: `TF_VAR_password=$(echo $ATLASSIAN_TOKEN) aftershock run atlassian create-jira-user`
+   2. Some providers automatically look for well known environment variables such as `AWS_SECRET_ACCESS_KEY` or `GITHUB_TOKEN`
+2. Rename to `terraform.tfvars`, and then execute your desired module.
+3. Then execute, for example: `aftershock run github recon`
 
 ```
 % aftershock -h
-An tool to quickly leverage terraform providers and modules
+A tool to quickly leverage terraform providers and modules
 Examples
-        aftershock search <saas-platform>
         aftershock run github recon
         aftershock run splunk create-user
 
@@ -44,13 +44,14 @@ Available Commands:
   run         Run a provider action
 
 Flags:
-      --clean               Delete provider terraform state files
-      --debug-path string   TF_LOG=DEBUG output file
-      --destroy             Destroy (undo) what the last plan you applied
-      --force               Don't prompt to delete state files
-  -h, --help                help for aftershock
-      --ignore-path         Ignore your installed version of terraform
-      --verbose             Print standard terraform output
+      --clean                   Delete provider terraform state files
+      --debug-path string       TF_LOG=DEBUG output file
+      --destroy                 Destroy (undo) what the last plan you applied
+      --force                   Don't prompt to delete state files
+  -h, --help                    help for aftershock
+      --ignore-path             Ignore your installed version of terraform
+      --providers-path string   Path to terraform templates folder (default "providers")
+      --verbose                 Print standard terraform output
 ```
 
 ## Supported Providers and Actions

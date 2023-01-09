@@ -1,13 +1,14 @@
 package config
 
 type AftershockConfig struct {
-	Clean        bool
-	Force        bool
-	Destroy      bool
-	Verbose      bool
-	DebugPath    string
-	TfIgnorePath bool
-	TfExecPath   string
+	Clean         bool
+	Force         bool
+	Destroy       bool
+	Verbose       bool
+	DebugPath     string
+	TfIgnorePath  bool
+	TfExecPath    string
+	ProvidersPath string
 }
 
 type RunCmd struct {

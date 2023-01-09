@@ -18,7 +18,7 @@ var newCmd = &cobra.Command{
 			cmd.Usage()
 			return
 		}
-		aftershock.NewAction(args)
+		aftershock.NewAction(args, conf)
 	},
 }
 

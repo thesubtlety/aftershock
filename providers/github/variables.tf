@@ -8,9 +8,3 @@ variable "ssh_key_pub" {
   description = "The public SSH key"
   default     = "default"
 }
-
-variable "github_repo_name" {
-  type = string
-  description = "The repo name to check for action secrets"
-  default     = "default"
-}

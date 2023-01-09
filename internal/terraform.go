@@ -22,7 +22,7 @@ func ExecTF(runCmd config.RunCmd, config config.AftershockConfig) {
 
 	moduleFiles := []string{"terraform.tfvars", "provider.tf", "variables.tf"}
 	for _, f := range moduleFiles {
-		from := filepath.Join("providers", provider, f)
+		from := filepath.Join(config.ProvidersPath, provider, f)
 		to := filepath.Join(modulePath, f)
 		//_, err := os.Stat(to)
 		//if os.IsNotExist(err) {
