@@ -1,10 +1,17 @@
 # Aftershock
 
-A toolkit leveraging Terraform to quickly query SaaS providers or create SaaS resources. 
+A toolkit to create SaaS resources or query SaaS data leveraging Terraform.
 
-There are countless SaaS providers and each has their own authentication standards and APIs. Why recreate the wheel each time you need to perform some action when others have already done the work with Terraform Provider integrations? Rather than learn the intricacies of some API or build custom connectors, just write or (largely) copy paste a quick HCL script and drop in your credentials to execute your desired recon or post exploit actions.
+There are countless SaaS services (aka Terraform providers) and each has their own authentication methods and APIs. Why recreate the wheel each time you need to perform some action when others have already done the work with Terraform Provider integrations?
 
-Find an API key or creds to a SaaS provider? Plug it into the `terraform.tfvars` file and see what it can do. Useful for offensive security to quickly pull data from a provider or create a user/resource and for detection engineering and blue teams to do the same to audit logs of those actions.
+Find an API key or creds to a SaaS provider? Plug it into the `terraform.tfvars` file and see what it can do. Rather than learn the intricacies of some API or build custom connectors, just write or (largely) copy paste a quick HCL script and drop in your credentials to execute your desired recon or post exploit actions.
+
+Useful for offensive security to quickly pull data from a provider or create a user/resource and for detection engineering and blue teams to do the same to audit logs of those actions.
+
+//fix list - depth 2
+  //helpful user message
+  //smarter to chdir and `tfexec providers'
+//error check if tfvars still example
 
 ## Usage
 
@@ -21,15 +28,23 @@ Get the binary: https://github.com/thesubtlety/aftershock/releases
 **Run**
 
 1. Add your tokens or credentials to the appropriate providers' `terraform.tfvars.example` file.
-   1. Or set env vars prepended with `TF_VAR` like: `TF_VAR_password=$(echo $ATLASSIAN_TOKEN) aftershock run atlassian create-jira-user`
-   2. Some providers automatically look for well known environment variables such as `AWS_SECRET_ACCESS_KEY` or `GITHUB_TOKEN`
 2. Rename to `terraform.tfvars`, and then execute your desired module.
-3. Then execute, for example: `aftershock run github recon`
+3. Then execute
+
+For example:
+
+```sh
+% cd providers/github/
+% cp terraform.tfvars.example terraform.tfvars
+% cat terraform.tfvars
+github_api_token = "github_pat_..."
+% aftershock run github recon
+```
 
 ```
 % aftershock -h
 A tool to quickly leverage terraform providers and modules
-Examples
+ Examples
         aftershock run github recon
         aftershock run splunk create-user
 
@@ -128,6 +143,8 @@ Copy paste the provider auth example into `provider.tf`. You'll want to replace 
 **variables.tf**
 
 Used for variables passed from the `terraform.tfvars` file, referenced in the `provider.tf` or action terraform files
+
+You can also set env vars prepended with `TF_VAR` like: `TF_VAR_password=$(echo $ATLASSIAN_TOKEN) aftershock run atlassian create-jira-user`
 
 **terraform.tf**
 
